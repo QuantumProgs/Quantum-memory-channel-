@@ -1,0 +1,65 @@
+import numpy as np
+import numpy.random as rnd
+import matplotlib.pyplot as plt
+import dynamics_learning as dl
+from dynamics_learning import dynamics_learning as dl1
+from scipy.optimize import fmin_l_bfgs_b as bfgs
+from qutip import *
+import cmath 
+import random
+import time
+
+# function that create 
+def create_ortodox_vector(vector):
+    vector = vector.full()
+    ortodox_vector = Qobj(np.array([[vector.conj().item(1)],[-vector.conj().item(0)]]))
+    return ortodox_vector
+j = complex(0,1)
+
+def get_projectors1(n):
+    #set initial conditions 
+    np.empty((1, 4, 4), dtype = np.complex128)
+    a = (basis(2,0)+basis(2,1))/np.sqrt(2)
+    b = (basis(2,0)+basis(2,1))/np.sqrt(2)
+    t = 1
+    g = 1
+    #set system state
+    states = np.empty([4, 4])
+    #Hamiltonian = g*tensor(sigmaz(),sigmaz()) + 2*tensor(sigmaz(),qeye(2))
+    #set Hamiltonian
+    Hamiltonian =  2*np.pi*tensor(basis(2,0)*basis(2,0).dag(),basis(2,0)*basis(2,0).dag()) + np.pi/2*tensor(sigmaz(),basis(2,1)*basis(2,1).dag())+np.pi*tensor(basis(2,1)*basis(2,1).dag(),basis(2,0)*basis(2,0).dag())
+    #set evolution operator
+    U = (-j*Hamiltonian*t).expm()
+    #set environment state
+    new_reservoir = b*b.dag()
+
+    for i in range(n-1):  
+        
+        particle_state =a*a.dag()
+        new_reservoir = new_reservoir
+        # make state of whole system( system+environment)
+        system_state = tensor(particle_state,new_reservoir)
+        # simulate evolution of whole system
+        after_state = U*system_state*U.dag()
+        #get system state after evolution
+        new_particle_state = after_state.ptrace(0)
+        # create random projector for mmeasurements
+        projector = rand_ket(2)
+        #measure system state
+        probability = (projector.dag()*new_particle_state*projector).tr()
+        # simulation of random measurement
+        if probability > random.random():
+            
+            new_particle_state = projector
+            new_reservoir = tensor(new_particle_state.dag(),qeye(2))*after_state*tensor(new_particle_state,qeye(2))/probability
+        else :
+            
+            new_particle_state = create_ortodox_vector(projector)
+            new_reservoir = tensor(new_particle_state.dag(),qeye(2))*after_state*tensor(new_particle_state,qeye(2))/(1-probability)
+        #simulation ends here!
+        
+        #new state has came into channel
+        a = rand_ket(2)
+        
+        states = np.append(states,np.expand_dims((tensor(a*new_particle_state.dag(),qeye(2))).full(), axis = 0) )
+    return states.reshape(n,4,4)
