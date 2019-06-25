@@ -7,6 +7,4 @@ Here I represent dynamic simulation of tensor network that describes quantum cha
 
 
 ![alt text](https://pp.userapi.com/c850636/v850636246/152e88/WNYkqp0rzpU.jpg)
- \begin{equation}
- \Phi
- \end{equation}
+ \begin{equation}\Phi\end{equation}
