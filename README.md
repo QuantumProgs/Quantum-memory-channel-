@@ -4,6 +4,8 @@ Simulation of open quantum system dynamics for quantum channels with memory
 Hello!
 
 Here I represent dynamic simulation of tensor network that describes quantum channels with memory.
+Script ""
+
 
 From the picture:
 \Phi[\varrho(t)] = U(H)\varrho_{S+E}(0)U(H)^{+}
