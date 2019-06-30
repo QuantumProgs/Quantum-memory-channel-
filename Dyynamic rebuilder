@@ -1,0 +1,53 @@
+import numpy as np
+import numpy.random as rnd
+import matplotlib.pyplot as plt
+import dynamics_learning as dl
+from dynamics_learning import dynamics_learning as dl1
+from scipy.optimize import fmin_l_bfgs_b as bfgs
+import pickle
+from qutip import *
+import cmath 
+import random
+import scipy.linalg as la
+
+
+model_2 = dl.dynamics_learning(2, 2, 1)
+
+model_2.set_in_state(np.array([[1., 1.], [1., 1.]])/2)
+
+#Hamiltonian of model_
+h = rnd.rand(4,4) + 1j*rnd.rand(4,4)
+h = h + h.conj().T
+model.set_h(h)
+
+batch_size = 10**3
+number_of_time_steps = 10**5
+learning_rate = 0.001
+number_of_epochs = 300
+plotting_time_step = 0.1
+max_total_plotting_time = 400
+min_total_plotting_time = 20
+
+data_reshaped = data.reshape((-1, batch_size, data.shape[1], data.shape[2]))
+
+   
+    
+    #=========================LEARNING CICLE===========================
+    m = 0.
+    v = 0.
+    t = 1.
+    counter = 0
+    llh = np.array([])
+
+    for epoch in range(number_of_epochs):
+        llh_agr = 0.
+        for batch in range(tr_set_reshaped.shape[0]):
+
+            grad = model_2.regular_grad(tr_set_reshaped[batch])
+            m, v = model_2.adam_step(100*grad, learning_rate, m, v, t, b1=0.9, b2=0.95, epsilon=10.**(-4))
+            t = t + 1.
+            llh_agr = llh_agr + model_2.log_likelihood(tr_set_reshaped[batch])
+
+        
+        
+        plt.show()
