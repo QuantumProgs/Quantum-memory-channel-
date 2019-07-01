@@ -11,6 +11,8 @@ Dataset from "Quantum memory channel dynamic simulation and dataset generation" 
 
 "Dynamic rebuilder" is supervised learning algorithm that uses dataset in order to find effective hamiltonian that will describe dynamic of open quantum system as true hamiltonian.
 
+Methods "dynamic learning" was taken from my collegues and changed for quantum channel purpose (https://github.com/GrigorievDmitry/Machine-learning-of-Markovian-embedding-for-non-Markovian-quantum-dynamics)
+
 
 
 From the picture:
