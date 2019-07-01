@@ -16,11 +16,6 @@ Methods "dynamic learning" was taken from my collegues and changed for quantum c
 
 
 From the picture:
-\Phi[\varrho(t)] = U(H)\varrho_{S+E}(0)U(H)^{+}
-U(H) - evolution operator
-q_{k_{i}} - enter states
-\phi_{k_{i}} - states after measure
-S - state system at the beginning
-E - stete environment at th beginning
+![alt text]https://pp.userapi.com/c857528/v857528257/682f/N6fpXu4mOy4.jpg
 ![alt text](https://pp.userapi.com/c850636/v850636246/152e88/WNYkqp0rzpU.jpg)
- \begin{equation}\Phi\end{equation}
+
