@@ -4,9 +4,11 @@ Simulation of open quantum system dynamics for quantum channels with memory
 Hello!
 
 Here I represent dynamic simulation of tensor network that describes quantum channels with memory.
+
 Script "Quantum memory channel dynamic simulation and dataset generation" is necessary for dataset generation thjis dataset is number of one-shot projective measurements.
 
 Dataset from "Quantum memory channel dynamic simulation and dataset generation" is used in  script "Dynamic rebuilder".
+
 "Dynamic rebuilder" is supervised learning algorithm that uses dataset in order to find effective hamiltonian that will describe dynamic of open quantum system as true hamiltonian.
 
 
