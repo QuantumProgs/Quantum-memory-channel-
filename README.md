@@ -16,6 +16,7 @@ Methods "dynamic learning" was taken from my collegues and changed for quantum c
 
 
 From the picture:
-![alt text]https://pp.userapi.com/c857528/v857528257/682f/N6fpXu4mOy4.jpg
+
+![alt text](https://pp.userapi.com/c857528/v857528257/682f/N6fpXu4mOy4.jpg)
 ![alt text](https://pp.userapi.com/c850636/v850636246/152e88/WNYkqp0rzpU.jpg)
 
