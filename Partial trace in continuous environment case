@@ -1,0 +1,15 @@
+import math 
+import cmath 
+import scipy
+import numpy as np
+
+def continous_partial_trace(density_matrix, continous_environment ):
+    a = 0.; b = 10000.; N = 20000
+    dx = (b-a)/(N)
+    f = lambda x: continous_environment(x)
+    x = np.linspace(a,b, N+1)
+    h = f(x)
+    y = continous_environment(x)
+    A = np.array([y[i]*density_matrix  for i in range(N+1) ])
+    B = np.einsum('kij->ij',(A[1:]+A[:-1]))*0.5*dx
+    return B
