@@ -21,4 +21,4 @@ From the picture:
 ![alt text](https://pp.userapi.com/c850636/v850636246/152e88/WNYkqp0rzpU.jpg)
 
 
-![alt text](https://sun9-9.userapi.com/c850236/v850236522/1cadfc/4bqoRmC2dfk.jpg)
+![alt text](https://sun9-14.userapi.com/c850236/v850236522/1cae03/9l0JvMKbfiw.jpg)
