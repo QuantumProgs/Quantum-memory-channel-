@@ -20,5 +20,6 @@ From the picture:
 ![alt text](https://pp.userapi.com/c849028/v849028415/1d2aff/Px2iD2TLWVM.jpg)
 ![alt text](https://pp.userapi.com/c850636/v850636246/152e88/WNYkqp0rzpU.jpg)
 
+Script "Partial trace (continuous environment case)" is useful for taking partial trace if environment is respresented with infinity degrees of freedom .
 
 ![alt text](https://sun9-14.userapi.com/c850236/v850236522/1cae03/9l0JvMKbfiw.jpg)
